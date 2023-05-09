@@ -1,4 +1,4 @@
-.PHONY: clean bear
+.PHONY: clean compile-commands
 
 BIN_BIN ?= $(error BIN_BIN must be set)
 BIN_ELF ?= $(error BIN_ELF must be set)
@@ -16,6 +16,6 @@ $(BUILD_DIR)/%.o: src/%.c
 clean:
 	$(Q)$(RM) -rfv $(BUILD_DIR)
 
-bear:
+compile-commands:
 	@mkdir -p $(BUILD_DIR)
 	bear --output $(BUILD_DIR)/compile_commands.json -- make -B
